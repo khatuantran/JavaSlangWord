@@ -14,12 +14,14 @@ import java.util.logging.Logger;
  *
  * @author jame
  */
-public class Slangword implements Serializable{
-    TreeMap<String, Vector<String>> SlangwordList;
-    String path = ".//slang.txt";
-    
+class Slangword implements Serializable{
+    private TreeMap<String, Vector<String>> slangwordList;
+    private Vector<String> history;
+    private String path = ".//slang.txt";
+    private String searchPath = "//searchHistory.txt";
     public Slangword() {
-        SlangwordList = new TreeMap<>();
+        slangwordList = new TreeMap<>();
+        history = new Vector<>();
         readFile();
     } 
     
@@ -37,6 +39,10 @@ public class Slangword implements Serializable{
             Logger.getLogger(Slangword.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+    
     public void readFile()
     {
         try
@@ -54,7 +60,7 @@ public class Slangword implements Serializable{
                     meaning.add(temp[i]);
                 }
                 
-                SlangwordList.put(Slangword[0], meaning);
+                slangwordList.put(Slangword[0], meaning);
             }
         }
         catch(Exception e)
@@ -63,17 +69,72 @@ public class Slangword implements Serializable{
         }
     }
     
-
+  
+    
     public TreeMap getTreeMap()
     {
-        return SlangwordList;
+        return slangwordList;
+    }
+    
+    public Vector<String> getHistoryVector()
+    {
+        return history;
+    }
+            
+    public void addHistory(Vector<String> key)
+    {
+        for(int i = 0; i < key.size(); i++)
+        {
+            String temp = key.get(i);
+            if(!history.contains(temp))
+            {
+                history.add(temp);
+            }
+        }
+    }
+    
+    public Vector<String> slangwordSearch(String key)
+    {
+        Vector<String> result = null;
+        if(slangwordList.containsKey(key))
+        {
+            result = slangwordList.get(key);
+        }
+        return result;
+    }
+    
+    public TreeMap<String, Vector<String>> definationSearch(String defination)
+    {
+        TreeMap<String, Vector<String>> result = new TreeMap<>();
+        Vector<String> key = new Vector<>(slangwordList.keySet());
+        for(int i = 0; i < key.size(); i++)
+        {
+            Vector<String> value = slangwordList.get(key.get(i));
+            Vector<String> resultSet = new Vector<>();
+            for(int j = 0; j < value.size(); j++)
+            {
+                String temp = value.get(j).toLowerCase();
+                if(temp.contains(defination.toLowerCase()))
+                {
+                    resultSet.add(value.get(j));
+                }
+            }
+            if(!resultSet.isEmpty())
+            {
+                result.put(key.get(i), resultSet);
+            }
+        }
+        
+        return result;
     }
 }
 
-class MainJavaSlangWord{
+public class MainJavaSlangWord
+{
         public static void main(String[] args) 
         {
             Slangword slang;
+//            slang.writeFile();
             try
             {
                    
