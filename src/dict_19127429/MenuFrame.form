@@ -36,13 +36,13 @@
                   <Component id="funny1Btn" max="32767" attributes="0"/>
                   <Component id="funny2Btn" min="-2" pref="250" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="144" max="32767" attributes="0"/>
+              <EmptySpace pref="138" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <EmptySpace pref="195" max="32767" attributes="0"/>
                   <Component id="filler1" min="-2" pref="69" max="-2" attributes="0"/>
-                  <EmptySpace pref="255" max="32767" attributes="0"/>
+                  <EmptySpace pref="252" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
