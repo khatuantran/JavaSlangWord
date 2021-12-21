@@ -77,8 +77,18 @@ public class MenuFrame extends javax.swing.JFrame {
         });
 
         randomBtn.setText("Random slangword");
+        randomBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randomBtnActionPerformed(evt);
+            }
+        });
 
         funny1Btn.setText("Funny game 1");
+        funny1Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funny1BtnActionPerformed(evt);
+            }
+        });
 
         funny2Btn.setText("Funny game 2");
 
@@ -158,6 +168,18 @@ public class MenuFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_resetBtnActionPerformed
+
+    private void randomBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomBtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new RandomFrame(slang);
+    }//GEN-LAST:event_randomBtnActionPerformed
+
+    private void funny1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funny1BtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new FunnyGame1(slang);
+    }//GEN-LAST:event_funny1BtnActionPerformed
 
     /**
      * @param args the command line arguments

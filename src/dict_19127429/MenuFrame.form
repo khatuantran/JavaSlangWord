@@ -135,11 +135,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Random slangword"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randomBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="funny1Btn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Funny game 1"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="funny1BtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="funny2Btn">
       <Properties>
