@@ -18,7 +18,6 @@ class Slangword implements Serializable{
     private TreeMap<String, Vector<String>> slangwordList;
     private Vector<String> history;
     private String path = ".//slang.txt";
-    private String searchPath = "//searchHistory.txt";
     public Slangword() {
         slangwordList = new TreeMap<>();
         history = new Vector<>();
@@ -31,7 +30,7 @@ class Slangword implements Serializable{
         ObjectOutputStream ooj;
         try 
         {
-            ooj = new ObjectOutputStream(new FileOutputStream("SlangwordNew.dat"));
+            ooj = new ObjectOutputStream(new FileOutputStream(".//SlangwordNew.dat"));
             ooj.writeObject(this);
         } 
         catch (IOException ex) 
@@ -138,9 +137,9 @@ public class MainJavaSlangWord
             try
             {
                    
-                   if(new File("SlangwordNew.dat").isFile())
+                   if(new File(".//SlangwordNew.dat").isFile())
                    {
-                        ObjectInputStream obj = new ObjectInputStream(new FileInputStream("SlangwordNew.dat"));
+                        ObjectInputStream obj = new ObjectInputStream(new FileInputStream(".//SlangwordNew.dat"));
 
                         slang = (Slangword)obj.readObject();
                         
