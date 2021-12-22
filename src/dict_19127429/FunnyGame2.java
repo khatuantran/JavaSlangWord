@@ -24,7 +24,7 @@ public class FunnyGame2 extends javax.swing.JFrame {
         initComponents();
         this.slang = slang;
         setLocationRelativeTo(null);
-        setTitle("FUNNY GAME 1");
+        setTitle("FUNNY GAME 2");
         
         randomDefinition();
         setVisible(true);
@@ -57,18 +57,22 @@ public class FunnyGame2 extends javax.swing.JFrame {
         }
     }
     
-    private void randomSlangword()
+    private void randomDefinition()
     {
         correctLabel.setText("");
         aBtn.setEnabled(true);
         bBtn.setEnabled(true);
         cBtn.setEnabled(true);
         dBtn.setEnabled(true);
-        question = randomKey();
-        questionLabel.setText("Question: Where is the correct slangword of " + "\"" + question + "\"");
-        Vector<String> value = (Vector<String>)slang.getTreeMap().get(question);
+        
+        correctAnswer = randomKey();
+        Vector<String> value = (Vector<String>)slang.getTreeMap().get(correctAnswer);        
         int randomIndex = ThreadLocalRandom.current().nextInt(0, value.size()); 
-        correctAnswer = value.get(randomIndex);
+        
+        question = value.get(randomIndex);
+        questionLabel.setText("Question: Where is the correct slangword of " + " \"" + question + "\" ?");
+
+
         
         correctIndex = ThreadLocalRandom.current().nextInt(0, 4); // A B C D
         System.out.println(correctIndex);
@@ -100,19 +104,13 @@ public class FunnyGame2 extends javax.swing.JFrame {
             if(i != correctIndex)
             {
                 String invalidKey = randomKey();
-//                Vector<String> incorrectAnswer = (Vector<String>)slang.getTreeMap().get(question);
-//                int randomIndexInvalid = ThreadLocalRandom.current().nextInt(0, value.size());
-//                String incorrectLabel = incorrectAnswer.get(randomIndexInvalid);
                 while(inCorrectQuestion.contains(invalidKey))
                 {
                     invalidKey = randomKey();
                     
                 }
                 inCorrectQuestion.add(invalidKey);
-                Vector<String> incorrectAnswer = (Vector<String>)slang.getTreeMap().get(invalidKey);
-                int randomIndexInvalid = ThreadLocalRandom.current().nextInt(0, incorrectAnswer.size());
-                String incorrectDefinition = incorrectAnswer.get(randomIndexInvalid);
-                setIncorrectAnswer(i, incorrectDefinition);
+                setIncorrectAnswer(i, invalidKey);
             }
         }
     }
@@ -193,7 +191,7 @@ public class FunnyGame2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("FUNNY GAME 1");
+        jLabel1.setText("FUNNY GAME 2");
         jLabel1.setOpaque(true);
 
         questionLabel.setForeground(new java.awt.Color(255, 0, 0));
@@ -243,7 +241,7 @@ public class FunnyGame2 extends javax.swing.JFrame {
                     .addComponent(dBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(correctLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(correctLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newQuestionBtn)
@@ -316,7 +314,7 @@ public class FunnyGame2 extends javax.swing.JFrame {
 
     private void newQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newQuestionBtnActionPerformed
         // TODO add your handling code here:
-        randomSlangword();
+        randomDefinition();
     }//GEN-LAST:event_newQuestionBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

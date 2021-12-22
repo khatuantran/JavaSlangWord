@@ -64,7 +64,7 @@ public class FunnyGame1 extends javax.swing.JFrame {
         cBtn.setEnabled(true);
         dBtn.setEnabled(true);
         question = randomKey();
-        questionLabel.setText("Question: " + question);
+        questionLabel.setText("Question: Where is the correct definition of " + " \"" + question + "\" ?");
         Vector<String> value = (Vector<String>)slang.getTreeMap().get(question);
         int randomIndex = ThreadLocalRandom.current().nextInt(0, value.size()); 
         correctAnswer = value.get(randomIndex);
@@ -243,7 +243,7 @@ public class FunnyGame1 extends javax.swing.JFrame {
                     .addComponent(dBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(correctLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addComponent(correctLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newQuestionBtn)
