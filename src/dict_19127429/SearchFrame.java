@@ -66,6 +66,7 @@ public class SearchFrame extends javax.swing.JFrame {
     
     private String getOptionSearch()
     {
+        //reference from internet
         String[] choices = { "Search slangword", "Search definition" };
         String input = (String) JOptionPane.showInputDialog(null, "Choose one:",
         "Search option", JOptionPane.QUESTION_MESSAGE, null, // Use
@@ -74,6 +75,7 @@ public class SearchFrame extends javax.swing.JFrame {
         choices, // Array of choices
         choices[0]); // Initial choice
         return input;
+        //reference from internet
     }
     
     /**

@@ -120,7 +120,9 @@ public class RandomFrame extends javax.swing.JFrame {
     private String randomKey()
     {
         Vector<String> key = new Vector<>(slang.getTreeMap().keySet());
+        //reference from internet
         int randomIndex = ThreadLocalRandom.current().nextInt(0, key.size()); 
+        //reference from internet
         return key.get(randomIndex);
     }
     
