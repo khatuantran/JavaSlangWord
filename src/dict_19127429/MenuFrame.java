@@ -91,6 +91,11 @@ public class MenuFrame extends javax.swing.JFrame {
         });
 
         funny2Btn.setText("Funny game 2");
+        funny2Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                funny2BtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,6 +185,12 @@ public class MenuFrame extends javax.swing.JFrame {
         this.dispose();
         new FunnyGame1(slang);
     }//GEN-LAST:event_funny1BtnActionPerformed
+
+    private void funny2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_funny2BtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new FunnyGame2(slang);
+    }//GEN-LAST:event_funny2BtnActionPerformed
 
     /**
      * @param args the command line arguments
